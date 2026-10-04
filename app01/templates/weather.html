@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .weather-card{
+            width:420px;
+            margin:60px auto;
+            padding:25px;
+            border:1px solid #ddd;
+            border-radius:12px;
+        }
+    </style>
+</head>
+<body>
+<div class="weather-card">
+    <h2>成都实时天气</h2>
+    {% if weather_list %}
+        <p>⏰ 时间: {{ weather_list.current.time }}</p>
+        <p>🌡️ 温度: {{ weather_list.current.temperature_2m }} {{ weather_list.current_units.temperature_2m }}</p>
+        <p>⛰️ 海拔: {{ weather_list.elevation }} m</p>
+        <p>🌍 时区: {{ weather_list.timezone }}</p>
+    {% else %}
+        <p>数据加载失败</p>
+    {% endif %}
+</div>
+</body>
+</html>
